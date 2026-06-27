@@ -1,0 +1,14 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+model/
+model/vosk-model-small-ru-0.22
+
+
+
+# Virtual environments
+.venv
