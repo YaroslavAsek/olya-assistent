@@ -7,6 +7,8 @@ wheels/
 *.egg-info
 model/
 model/vosk-model-small-ru-0.22
+model.pt
+test.wav
 
 
 

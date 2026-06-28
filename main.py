@@ -13,16 +13,16 @@ makeSound("начинаю работу!")
 
 def assistent_call(mes: str):
     for i in config.AS_CALL:
-        if mes.startswith(i):
+        if mes.startswith(i) or fuzz.ratio(mes, i) > 75:
             return True
-        else:
-            return False
+       
             
         
 def find_command(mes: str):
     for i in mes.strip().split():
-        if i in config.AS_COMS:
-            return True
+        for j in config.AS_COMS:
+            if fuzz.ratio(i, j) > 75:
+                return True
 
 def filtered_commands(mes: str):
     filtered_com = ""
@@ -96,8 +96,9 @@ def main():
     try:
         while True:
             mes = ResultWord()
-            print(f"Я: {mes.capitalize()}")
-            execute_commands(mes)
+            if assistent_call(mes):
+                print(f"Я: {mes.capitalize()}")
+                execute_commands(mes)
             
     except AttributeError:
         print("Конец работы")

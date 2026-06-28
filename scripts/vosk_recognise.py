@@ -24,16 +24,16 @@ def ResultWord():
             while True:
                 data = q.get()
                 if rec.AcceptWaveform(data):
-                    res = rec.Result()
+                    res = rec.FinalResult()
                     resultat = res[14:len(res)-3]
-                    if resultat != "":
-                        return resultat
+                    return resultat
                 
                 # else:
                 #     print(rec.PartialResult())
 
     except KeyboardInterrupt:
         print("\nDone")
-        
+
+
   
 
